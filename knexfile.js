@@ -8,8 +8,7 @@ module.exports = {
       user: "sql9602617", // replace with your mysql username
       password: "WiMCsHlQma", // replace with your mysql password
       database: "sql9602617"
-    },
-    debug: true
+    }
   }
 };
 
