@@ -1,9 +1,26 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
+const cors = require('cors');
 
 const app = express();
 app.set('port', 4000);
+
+const config = {
+    application: {
+        cors: {
+            server: [
+                {
+                    origin: "https://apitestrecetario.onrender.com/", //servidor que deseas que consuma o (*) en caso que sea acceso libre
+                    credentials: true
+                }
+            ]
+        }
+}}
+
+app.use(cors(
+    config.application.cors.server
+  ));
 
 var userRouter= require("./src/routes/userRoute");
 app.use("/user", userRouter);
