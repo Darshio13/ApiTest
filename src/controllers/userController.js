@@ -23,7 +23,7 @@ exports.userPost = (req, res) => {
             apellidos: req.params.apellidos,
             nombre_usuario: req.params.nombre_usuario,
             correo_electronico: req.params.correo_electronico,
-            password: req.params.password,
+            password: req.body.password,
             tipo_usuario: 1
         })
         .then((results) => {
@@ -40,8 +40,8 @@ exports.userPost = (req, res) => {
             const mailOptions = {
                 from: 'santos.m.diego.a@gmail.com',
                 to: req.params.correo_electronico,
-                subject: 'Prueba2',
-                text: 'Correo Exito'+ results.id_usuario
+                subject: 'Verificacion de cuenta recetario',
+                text: 'Para verificar tu cuenta preciona acceda al siguiente enlace '+ results.id_usuario
             };
 
             transporter.sendMail(mailOptions, function (error, info) {
