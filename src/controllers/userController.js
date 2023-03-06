@@ -28,8 +28,6 @@ exports.userPost = (req, res) => {
         })
         .then((results) => {
             console.log(results);
-        
-
             //Enviar correo
             const transporter = nodemailer.createTransport({
                 service: 'gmail',
