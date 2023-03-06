@@ -28,6 +28,7 @@ exports.userPost = (req, res) => {
         })
         .then((results) => {
             console.log(results);
+            iduser=results.id_usuario;
 
             //Enviar correo
             const transporter = nodemailer.createTransport({
@@ -41,8 +42,8 @@ exports.userPost = (req, res) => {
             const mailOptions = {
                 from: 'santos.m.diego.a@gmail.com',
                 to: req.params.correo_electronico,
-                subject: 'Prueba',
-                text: 'Correo Exito'
+                subject: 'Prueba2',
+                text: 'Correo Exito'+iduser
             };
 
             transporter.sendMail(mailOptions, function (error, info) {
