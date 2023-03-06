@@ -45,7 +45,7 @@ exports.userPost = (req, res) => {
                 from: 'santos.m.diego.a@gmail.com',
                 to: req.params.correo_electronico,
                 subject: 'Verificacion de cuenta recetario',
-                text: 'Para verificar tu cuenta preciona acceda al siguiente enlace https://recetariowebapp.onrender.com/registro/confirmAccount/'+ results.id_usuario
+                text: 'Para verificar tu cuenta preciona acceda al siguiente enlace https://recetariowebapp.onrender.com/registro/confirmAccount/'+ results.token_tool
             };
 
             transporter.sendMail(mailOptions, function (error, info) {
