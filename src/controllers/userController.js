@@ -40,7 +40,7 @@ exports.userPost = (req, res) => {
 
             const mailOptions = {
                 from: 'santos.m.diego.a@gmail.com',
-                to: results[0].correo_electronico,
+                to: req.params.correo_electronico,
                 subject: 'Prueba',
                 text: 'Correo Exito'
             };
