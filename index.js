@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
+const crypto = require('crypto');
+
 
 const app = express();
 app.set('port', 4000);
