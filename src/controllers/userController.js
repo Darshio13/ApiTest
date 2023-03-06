@@ -18,7 +18,7 @@ exports.userGet = (req, res) => {
 
 exports.userPost = (req, res) => {
     Usuario.query()
-        .insert({
+        .insertAndFetch({
             nombre: req.params.nombre,
             apellidos: req.params.apellidos,
             nombre_usuario: req.params.nombre_usuario,
@@ -28,7 +28,7 @@ exports.userPost = (req, res) => {
         })
         .then((results) => {
             console.log(results);
-            iduser=results.id_usuario;
+        
 
             //Enviar correo
             const transporter = nodemailer.createTransport({
@@ -43,7 +43,7 @@ exports.userPost = (req, res) => {
                 from: 'santos.m.diego.a@gmail.com',
                 to: req.params.correo_electronico,
                 subject: 'Prueba2',
-                text: 'Correo Exito'+iduser
+                text: 'Correo Exito'+ results.id_usuario
             };
 
             transporter.sendMail(mailOptions, function (error, info) {
