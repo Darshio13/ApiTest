@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+var crypto = require('crypto');
 
 const Usuario = require("../models/usuario");
 
