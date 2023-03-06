@@ -18,14 +18,13 @@ exports.userGet = (req, res) => {
 
 exports.userPost = (req, res) => {
     Usuario.query()
-        .insertAndFetch({
+        .insert({
             nombre: req.params.nombre,
             apellidos: req.params.apellidos,
             nombre_usuario: req.params.nombre_usuario,
             correo_electronico: req.params.correo_electronico,
             password: req.params.password,
             tipo_usuario: 1
-
         })
         .then((results) => {
             console.log(results);
@@ -41,7 +40,7 @@ exports.userPost = (req, res) => {
 
             const mailOptions = {
                 from: 'santos.m.diego.a@gmail.com',
-                to: 'santos.m.a.diego@gmail.com',
+                to: results[0].correo_electronico,
                 subject: 'Prueba',
                 text: 'Correo Exito'
             };
