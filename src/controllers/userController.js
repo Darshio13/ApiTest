@@ -17,9 +17,6 @@ exports.userGet = (req, res) => {
 }
 
 exports.userPost = (req, res) => {
-    //Crear token
-    var token = crypto.randomBytes(64).toString('hex');
-    //Crear usuario en la base de datos
     Usuario.query()
         .insertAndFetch({
             nombre: req.params.nombre,
@@ -27,12 +24,11 @@ exports.userPost = (req, res) => {
             nombre_usuario: req.params.nombre_usuario,
             correo_electronico: req.params.correo_electronico,
             password: req.params.password,
-            tipo_usuario: 1,
-            token_tool:token
+            tipo_usuario: 1
         })
         .then((results) => {
             console.log(results);
-            //Configurar correo
+            //Enviar correo
             const transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
@@ -40,12 +36,12 @@ exports.userPost = (req, res) => {
                     pass: 'enbatovbhogpsdyj'
                 }
             });
-            //Enviar correo;
+
             const mailOptions = {
                 from: 'santos.m.diego.a@gmail.com',
                 to: req.params.correo_electronico,
                 subject: 'Verificacion de cuenta recetario',
-                text: 'Para verificar tu cuenta preciona acceda al siguiente enlace https://recetariowebapp.onrender.com/registro/confirmAccount/'+ results.token_tool
+                text: 'Correo Exito'+ results.id_usuario
             };
 
             transporter.sendMail(mailOptions, function (error, info) {
