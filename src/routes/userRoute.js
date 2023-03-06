@@ -7,7 +7,7 @@ router.get("/login/:correo/:password", userController.userGet);
 
 router.post("/post/:nombre/:apellidos/:nombre_usuario/:correo_electronico/:password", userController.userPost);
 
-router.put("/putstatus/:id", userController.userPutEstatus);
+router.put("/putstatus/:token_tool", userController.userPutEstatus);
 
 
 
