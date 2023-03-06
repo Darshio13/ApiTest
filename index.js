@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const cors = require('cors');
+const nodemailer = require('nodemailer');
 
 const app = express();
 app.set('port', 4000);
@@ -22,6 +23,7 @@ app.use(cors(
     config.application.cors.server
   ));
 
+//Uso de rutas
 var userRouter= require("./src/routes/userRoute");
 app.use("/user", userRouter);
 

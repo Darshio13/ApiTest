@@ -1,3 +1,5 @@
+const nodemailer = require('nodemailer');
+
 const Usuario = require("../models/usuario");
 
 exports.userGet= (req, res)=>{
@@ -18,7 +20,7 @@ exports.userGet= (req, res)=>{
 
 exports.userPost= (req, res)=>{
     Usuario.query()
-    .insert({
+    .insertAndFetch({
     nombre:req.params.nombre,
     apellidos:req.params.apellidos,
     nombre_usuario:req.params.nombre_usuario,
@@ -29,6 +31,23 @@ exports.userPost= (req, res)=>{
 })
     .then((results)=>{
         console.log(results);
+
+        //Enviar correo
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: 'santos.m.diego.a@gmail.com',
+              pass: 'enbatovbhogpsdyj'
+            }
+          });
+          
+          const mailOptions = {
+            from: 'santos.m.diego.a@gmail.com',
+            to: results[0].correo_electronico,
+            subject: 'Prueba',
+            text: 'Correo Exito'
+          };
+
         res.json("Se registro el usuario")
     })
 }
