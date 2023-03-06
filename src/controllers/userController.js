@@ -23,7 +23,7 @@ exports.userPost = (req, res) => {
             apellidos: req.params.apellidos,
             nombre_usuario: req.params.nombre_usuario,
             correo_electronico: req.params.correo_electronico,
-            password: req.body.password,
+            password: req.params.password,
             tipo_usuario: 1
         })
         .then((results) => {
