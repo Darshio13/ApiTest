@@ -17,6 +17,8 @@ exports.userGet = (req, res) => {
 }
 
 exports.userPost = (req, res) => {
+    var token = crypto.randomBytes(64).toString('hex');
+
     Usuario.query()
         .insertAndFetch({
             nombre: req.params.nombre,
@@ -24,7 +26,8 @@ exports.userPost = (req, res) => {
             nombre_usuario: req.params.nombre_usuario,
             correo_electronico: req.params.correo_electronico,
             password: req.params.password,
-            tipo_usuario: 1
+            tipo_usuario: 1,
+            token_tool:token
         })
         .then((results) => {
             console.log(results);
@@ -41,7 +44,7 @@ exports.userPost = (req, res) => {
                 from: 'santos.m.diego.a@gmail.com',
                 to: req.params.correo_electronico,
                 subject: 'Verificacion de cuenta recetario',
-                text: 'Correo Exito'+ results.id_usuario
+                text: 'Para verificar tu cuenta preciona acceda al siguiente enlace https://recetariowebapp.onrender.com/registro/confirmAccount/'+ results.id_usuario
             };
 
             transporter.sendMail(mailOptions, function (error, info) {
