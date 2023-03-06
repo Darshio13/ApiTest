@@ -64,7 +64,7 @@ exports.userPost = (req, res) => {
 exports.userPutEstatus = (req, res) => {
 
     Usuario.query()
-        .where('id_usuario', '=', req.params.token_tool)
+        .where('token_tool', '=', req.params.token_tool)
         .patch({
             estatus_confirmacion: 1
         })
