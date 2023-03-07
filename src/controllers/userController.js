@@ -45,6 +45,7 @@ exports.userPost = (req, res) => {
     let time =
         today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     let dateTime = date + " " + time;
+    var d1 = new Date(dateTime)
     //Crear query
     Usuario.query()
         .insertAndFetch({
@@ -55,7 +56,7 @@ exports.userPost = (req, res) => {
             password: req.params.password,
             tipo_usuario: 1,
             token_tool: token,
-            fecha_registro:dateTime
+            fecha_registro:d1
         })
         .then((results) => {
             console.log(results);
