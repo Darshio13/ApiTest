@@ -24,7 +24,7 @@ exports.userRegisterDate = (req, res) => {
         .then((results) => {
             if (results.length > 0) {
                 console.log(results);
-                a=results[0].fecha_registro;
+                a = results[0].fecha_registro;
                 console.log(a)
                 res.json(a);
             }
@@ -39,12 +39,12 @@ exports.userPost = (req, res) => {
     //Crear token
     var token = crypto.randomBytes(64).toString('hex');
     //Crear fecha de creacion de cuenta
-    let today = new Date();
-    let date =
-        today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate()-1;
-    let time =
-        today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    let dateTime = date + " " + time;
+
+
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date + ' ' + time;
     console.log(dateTime);
     //Crear query
     Usuario.query()
@@ -56,7 +56,7 @@ exports.userPost = (req, res) => {
             password: req.params.password,
             tipo_usuario: 1,
             token_tool: token,
-            fecha_registro:dateTime
+            fecha_registro: dateTime
         })
         .then((results) => {
             console.log(results);
