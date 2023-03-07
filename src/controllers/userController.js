@@ -26,7 +26,7 @@ exports.userRegisterDate = (req, res) => {
                 console.log(results);
                 a=results[0].fecha_registro;
                 console.log(a)
-                res.json(results);
+                res.json(a);
             }
             else {
                 res.json("No se encontro el usuario")
@@ -41,7 +41,7 @@ exports.userPost = (req, res) => {
     //Crear fecha de creacion de cuenta
     let today = new Date();
     let date =
-        today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+        today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate()-1;
     let time =
         today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     let dateTime = date + " " + time;
