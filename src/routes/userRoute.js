@@ -3,7 +3,7 @@ var router = express.Router();
 
 var userController = require("../controllers/userController")
 
-router.get("/login/:correo/:password", userController.userGet);
+router.get("/login/:username/:password", userController.userGet);
 
 router.get("/fecha/:token", userController.userRegisterDate)
 

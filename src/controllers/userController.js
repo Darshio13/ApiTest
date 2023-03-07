@@ -6,7 +6,7 @@ const Usuario = require("../models/usuario");
 //Obtener para el login
 exports.userGet = (req, res) => {
     Usuario.query()
-        .where('correo_electronico', '=', req.params.correo)
+        .where('nombre_usuario', '=', req.params.username)
         .where('password', '=', req.params.password)
         .then((results) => {
             if (results.length > 0) {
