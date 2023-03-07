@@ -5,7 +5,7 @@ var userController = require("../controllers/userController")
 
 router.get("/login/:correo/:password", userController.userGet);
 
-router.get("/fecha/:token")
+router.get("/fecha/:token", userController.userRegisterDate)
 
 router.post("/post/:nombre/:apellidos/:nombre_usuario/:correo_electronico/:password", userController.userPost);
 
