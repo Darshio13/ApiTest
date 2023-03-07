@@ -45,6 +45,7 @@ exports.userPost = (req, res) => {
     let time =
         today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     let dateTime = date + " " + time;
+    console.log(dateTime);
     //Crear query
     Usuario.query()
         .insertAndFetch({
