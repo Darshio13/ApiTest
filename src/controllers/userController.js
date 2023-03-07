@@ -23,7 +23,10 @@ exports.userRegisterDate = (req, res) => {
         .where('token_tool', '=', req.params.token)
         .then((results) => {
             if (results.length > 0) {
-                res.json(results[0].fecha_registro);
+                console.log(results);
+                a=results[0].fecha_registro;
+                console.log(a)
+                res.json(results);
             }
             else {
                 res.json("No se encontro el usuario")
