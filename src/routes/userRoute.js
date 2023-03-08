@@ -11,7 +11,7 @@ router.post("/post/:nombre/:apellidos/:nombre_usuario/:correo_electronico/:passw
 
 router.put("/putstatus/:token_tool", userController.userPutEstatus);
 
-router.put("/changePassword/:token_tool", userController.userUserName);
+router.put("/changePassword/", userController.userUserName);
 
 
 

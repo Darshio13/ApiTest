@@ -108,6 +108,7 @@ exports.userPutEstatus = (req, res) => {
 
 //Enviar correo de usuario
 exports.userUserName = (req, res) => {
+    console.log("ESTE ES EL PUT DE PASSWORD")
     Usuario.query()
         .where('correo_electronico', '=', req.body.email)
         .then((results) => {
