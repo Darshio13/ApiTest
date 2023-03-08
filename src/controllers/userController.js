@@ -108,44 +108,45 @@ exports.userPutEstatus = (req, res) => {
 
 //Enviar correo de usuario
 exports.userUserName = (req, res) => {
-    console.log("ESTE ES EL PUT DE PASSWORD")
-    Usuario.query()
-        .where('correo_electronico', '=', req.body.email)
-        .then((results) => {
-            if (results.length > 0) {
-                console.log(results);
-                a = results[0].correo_electronico;
-                console.log("El correo es " + a)
+    res.json("OJO")
+    // console.log("ESTE ES EL PUT DE PASSWORD")
+    // Usuario.query()
+    //     .where('correo_electronico', '=', req.body.email)
+    //     .then((results) => {
+    //         if (results.length > 0) {
+    //             console.log(results);
+    //             a = results[0].correo_electronico;
+    //             console.log("El correo es " + a)
 
 
-                //Enviar correo
-                const transporter = nodemailer.createTransport({
-                    service: 'gmail',
-                    auth: {
-                        user: 'santos.m.diego.a@gmail.com',
-                        pass: 'enbatovbhogpsdyj'
-                    }
-                });
+    //             //Enviar correo
+    //             const transporter = nodemailer.createTransport({
+    //                 service: 'gmail',
+    //                 auth: {
+    //                     user: 'santos.m.diego.a@gmail.com',
+    //                     pass: 'enbatovbhogpsdyj'
+    //                 }
+    //             });
 
-                const mailOptions = {
-                    from: 'santos.m.diego.a@gmail.com',
-                    to: req.body.email,
-                    subject: 'Recuperacion de contraseña',
-                    text: 'El nombre de usuario de su cuenta es ' +results[0].nombre_usuario + ". Acceda al siguiente link para cambiar su contraseña: https://recetariowebapp.onrender.com/registro/confirmAccount/" + results.token_tool
-                };
+    //             const mailOptions = {
+    //                 from: 'santos.m.diego.a@gmail.com',
+    //                 to: req.body.email,
+    //                 subject: 'Recuperacion de contraseña',
+    //                 text: 'El nombre de usuario de su cuenta es ' +results[0].nombre_usuario + ". Acceda al siguiente link para cambiar su contraseña: https://recetariowebapp.onrender.com/registro/confirmAccount/" + results.token_tool
+    //             };
 
-                transporter.sendMail(mailOptions, function (error, info) {
-                    if (error) {
-                        console.log(error);
-                    } else {
-                        console.log('Email sent: ' + info.response);
-                        // do something useful
-                    }
-                });
-                res.json(a);
-            }
-            else {
-                res.json("No se encontro el usuario")
-            }
-        })
+    //             transporter.sendMail(mailOptions, function (error, info) {
+    //                 if (error) {
+    //                     console.log(error);
+    //                 } else {
+    //                     console.log('Email sent: ' + info.response);
+    //                     // do something useful
+    //                 }
+    //             });
+    //             res.json(a);
+    //         }
+    //         else {
+    //             res.json("No se encontro el usuario")
+    //         }
+    //     })
 }
