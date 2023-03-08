@@ -108,6 +108,7 @@ exports.userPutEstatus = (req, res) => {
 
 //Enviar correo de usuario
 exports.userUserName = (req, res) => {
+    console.log(req.body.email);
     res.json("Se ha verificado al usuario")
 
     // console.log("ESTE ES EL PUT DE PASSWORD")
