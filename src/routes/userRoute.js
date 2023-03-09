@@ -14,7 +14,7 @@ router.put("/putstatus/:token_tool", userController.userPutEstatus);
 //Enviar correo para actualizar contraseña
 router.post("/changePassword/", userController.userUserName);
 //Cambiar contraseña
-router.put("/changePassword/:token_tool", userController.userPutPassword);
+router.put("/cambiarPassword/", userController.userPutPassword);
 
 
 
