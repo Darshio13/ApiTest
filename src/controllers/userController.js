@@ -105,13 +105,25 @@ exports.userPutEstatus = (req, res) => {
 }
 
 //Actualizar contraseña
+//Actualizar estatus
+exports.userPutPassword = (req, res) => {
 
+    Usuario.query()
+        .where('token_tool', '=', req.params.token_tool)
+        .patch({
+            password: req.body.password
+        })
+        .then((results) => {
+            res.json("Se ha verificado al usuario")
+        })
+
+}
 //Enviar correo de usuario
 exports.userUserName = (req, res) => {
     console.log(req.body.email);
     res.json("Se ha verificado al usuario")
 
-    console.log("ESTE ES EL PUT DE PASSWORD")
+    console.log("ESTE ES EL POST DE PASSWORD")
     Usuario.query()
         .where('correo_electronico', '=', req.body.email)
         .then((results) => {
@@ -134,7 +146,7 @@ exports.userUserName = (req, res) => {
                     from: 'santos.m.diego.a@gmail.com',
                     to: req.body.email,
                     subject: 'Recuperacion de contraseña',
-                    text: 'El nombre de usuario de su cuenta es ' +results[0].nombre_usuario + ". Acceda al siguiente link para cambiar su contraseña: https://recetariowebapp.onrender.com/registro/confirmAccount/" + results.token_tool
+                    text: 'El nombre de usuario de su cuenta es ' +results[0].nombre_usuario + ". Acceda al siguiente link para cambiar su contraseña: https://recetariowebapp.onrender.com/registro/confirmAccount/" + results[0].token_tool
                 };
 
                 transporter.sendMail(mailOptions, function (error, info) {
@@ -152,3 +164,6 @@ exports.userUserName = (req, res) => {
             }
         })
 }
+
+
+//
