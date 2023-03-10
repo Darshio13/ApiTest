@@ -6,9 +6,9 @@ module.exports = {
       connection: {
       host: "sql9.freemysqlhosting.net",
       port: 3306,
-      user: "sql9602617", 
-      password: "WiMCsHlQma",
-      database: "sql9602617"
+      user: "sql9604565", 
+      password: "ldE49ApLPF",
+      database: "sql9604565"
     },
   },
 
@@ -17,9 +17,9 @@ module.exports = {
     connection: {
       host: "sql9.freemysqlhosting.net",
       port: 3306,
-      user: "sql9602617", 
-      password: "WiMCsHlQma",
-      database: "sql9602617"
+      user: "sql9604565", 
+      password: "ldE49ApLPF",
+      database: "sql9604565"
     },
   },
 
@@ -28,9 +28,9 @@ module.exports = {
     connection: {
       host: "sql9.freemysqlhosting.net",
       port: 3306,
-      user: "sql9602617", 
-      password: "WiMCsHlQma",
-      database: "sql9602617"
+      user: "sql9604565", 
+      password: "ldE49ApLPF",
+      database: "sql9604565"
     },
   },
 
