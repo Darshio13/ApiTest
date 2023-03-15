@@ -34,8 +34,8 @@ app.use(cors(
 var userRouter= require("./src/routes/userRoute");
 app.use("/user", userRouter);
 
-app.listen(app.get(PORT), () => {
-    console.log('Listening on port ', app.get(PORT));
+app.listen(app.get('port'), () => {
+    console.log('Listening on port ', app.get('port'));
 });
 
 app.get('/',(req, res)=>{
