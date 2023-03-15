@@ -4,7 +4,8 @@ const mysql = require('mysql2');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
-import{PORT} from '/config'
+
+const PORT = process.env.PORT||4000
 
 const app = express();
 app.set('port', PORT);
