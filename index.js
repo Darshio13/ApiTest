@@ -5,9 +5,10 @@ const cors = require('cors');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 
+const PORT = process.env.PORT||4000
 
 const app = express();
-app.set('port', 4000);
+app.set('port', PORT);
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 // parse application/json
@@ -27,14 +28,14 @@ const config = {
 
 app.use(cors(
     config.application.cors.server
-  ));
+));
 
 //Uso de rutas
 var userRouter= require("./src/routes/userRoute");
 app.use("/user", userRouter);
 
-app.listen(app.get('port'), () => {
-    console.log('Listening on port ', app.get('port'));
+app.listen(app.get(PORT), () => {
+    console.log('Listening on port ', app.get(PORT));
 });
 
 app.get('/',(req, res)=>{
