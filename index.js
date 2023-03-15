@@ -8,7 +8,7 @@ const crypto = require('crypto');
 const PORT = process.env.PORT||4000
 
 const app = express();
-app.set('port', PORT);
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 // parse application/json
@@ -34,8 +34,8 @@ app.use(cors(
 var userRouter= require("./src/routes/userRoute");
 app.use("/user", userRouter);
 
-app.listen(app.get('port'), () => {
-    console.log('Listening on port ', app.get('port'));
+app.listen(PORT, () => {
+    console.log('Listening on port ', PORT);
 });
 
 app.get('/',(req, res)=>{
