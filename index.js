@@ -5,7 +5,7 @@ const cors = require('cors');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 
-const PORT = process.env.PORT||4000
+const PORT = 4000
 
 const app = express();
 app.set('port', PORT);
